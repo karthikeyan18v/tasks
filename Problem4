@@ -1,0 +1,46 @@
+package task_problems;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Problem4 {
+
+    public static Map<Integer, Integer> countMultiples(List<Integer> numbers) {
+        Map<Integer, Integer> result = new LinkedHashMap<>();
+
+        // initialize counts for 1–9
+        for (int d = 1; d <= 9; d++) {
+            result.put(d, 0);
+        }
+
+        // count multiples
+        for (int num : numbers) {
+            for (int d = 1; d <= 9; d++) {
+                if (num % d == 0) {
+                    result.put(d, result.get(d) + 1);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter numbers separated by spaces:");
+        String[] input = sc.nextLine().split("\\s+");
+
+        List<Integer> numbers = new ArrayList<>();
+        for (String s : input) {
+            if (s.matches("-?\\d+")) {   
+                numbers.add(Integer.parseInt(s));
+            }
+        }
+
+        System.out.println(countMultiples(numbers));
+    }
+}
