@@ -1,0 +1,29 @@
+package task_problems;
+
+import java.util.Scanner;
+
+public class Problem3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the number:");
+		Scanner in= new Scanner(System.in);
+		int a =in.nextInt();
+		series(a);
+
+	}
+		
+	 public static void series(int a) {
+		 int limit;
+	        if(a % 2 == 0) {
+	        	 limit=a-1;
+	        }
+	        else {
+	        	 limit=a;
+	        }
+
+	        for (int i = 0; i < limit; i++) {
+	            System.out.print((2 * i) + 1+",");  // prints odd numbers: 1,3,5,...
+	        }
+	    }
+}
